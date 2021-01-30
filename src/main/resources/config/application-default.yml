@@ -1,0 +1,18 @@
+#logging:
+#  level:
+#    ROOT: debug
+#    com.guavapay.ms.auth: debug
+#    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: error
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/ms-auth
+    username: postgresadmin
+    password: admin123
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+
+server:
+  port: 12345

@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  auth-postgresql:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=ms-auth
+      - POSTGRES_USER=postgresadmin
+      - POSTGRES_PASSWORD=admin123
+    ports:
+      - 5434:5432
+#  redis:
+#    image: redis:latest
+#    environment:
+#      - REDIS_URI=redis://redis:6379
+#      - REDSMIN_KEY=5cd17f590f7a3006da30da77
+  redis:
+    image: redis:latest
+    ports:
+    - 6379:6379

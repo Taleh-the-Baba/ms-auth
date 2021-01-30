@@ -1,0 +1,74 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.guavapay.ms.auth'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+//dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.RELEASE'
+//    }
+//}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+//configurations {
+//    providedRuntime
+//    compile.exclude module: "spring-boot-starter-tomcat"
+//}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.4.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+//    compile "org.springframework.security:spring-security-config"
+//    compile "org.springframework.security:spring-security-data"
+//    compile "org.springframework.security:spring-security-web"
+    implementation 'org.liquibase:liquibase-core'
+    compileOnly 'org.projectlombok:lombok'
+//    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    compile "io.springfox:springfox-bean-validators:3.0.0"
+    compile "org.hibernate.validator:hibernate-validator"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+//    compile group: 'javax.el', name: 'javax.el-api', version: '3.0.1-b06'
+//    compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
+//    compile("org.springframework.boot:spring-boot-starter-web") {
+//        exclude module: 'spring-boot-starter-tomcat'
+//    }
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+    compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
+    runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+    runtime group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
+    compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.4.1.Final'
+    annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.4.1.Final'
+    compile group: 'org.mapstruct', name: 'mapstruct', version: '1.4.1.Final'
+    compile group: 'org.redisson', name: 'redisson', version: '3.14.0'
+//    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    compile "org.apache.tomcat:servlet-api:6.0.44"
+//    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.3.3'
+//    compile "org.springframework.cloud:spring-cloud-starter"
+}
+
+test {
+    useJUnitPlatform()
+}
